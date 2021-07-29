@@ -1,0 +1,61 @@
+.coffee {
+    width: 680px;
+    font-size: 1.6rem;
+    margin: 2vh auto 0;
+    > h3 {
+        text-align: center;
+    }
+    &__heading {
+        font-size: 1.5em;
+    }
+    &__goods {
+        cursor: pointer;
+        display: block;
+        margin: 1rem;
+        width: 220px;
+        padding: 0.5rem;
+        border: 0.2rem solid rgb(83, 83, 83);
+        border-radius: 0.4rem;
+
+        &--checked {
+            border: 0.2rem solid #ff6d5ab4;
+        }
+
+        &--disabled {
+            background-color: rgba(230, 230, 230, 0.877);
+            border: 0.2rem solid rgba(209, 209, 209, 0.863);
+        }
+        > input {
+            position: absolute;
+            visibility: hidden;
+        }
+    }
+    &__deposit {
+        text-align: center;
+    }
+    &__message {
+        text-align: center;
+        font-weight: 500;
+        &--error {
+            color: red;
+        }
+        &--success {
+            color: green;
+        }
+    }
+}
+
+.form {
+    &__goods {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        height: 250px;
+    }
+    &__buttons {
+        text-align: center;
+        > button {
+            margin: 0 1rem;
+        }
+    }
+}

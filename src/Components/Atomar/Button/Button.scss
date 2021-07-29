@@ -1,0 +1,13 @@
+.button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #363636;
+    padding: 0.5rem 1rem;
+    border: 0.1rem solid #234a70;
+    border-radius: 0.4rem;
+}
+
+.button[disabled] {
+    background-color: #e6e1e1;
+    border: 1px solid #4685c4;
+}

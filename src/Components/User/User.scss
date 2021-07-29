@@ -1,0 +1,26 @@
+.user {
+    font-size: 1.6rem;
+    &__heading {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    &__money {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    &__coin {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2.5rem;
+    }
+    &__button {
+        font-size: 1.5em;
+        font-weight: bold;
+        border: 0.2rem solid #d6d6d6;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+}

@@ -8,63 +8,68 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Тестовое задание frontend dev на разработку виртуального аппарата по продаже кофе (кофемашина) 
 
-### `yarn test`
+Описание: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Смоделировать работу кофемашины по продаже кофе, чая и т.д. реализовать описанные сценарии работы. 
 
-### `yarn build`
+Рисовать кофемашину в деталях не требуется, достаточно схематически расположить компоненты на форме обозначающие депозит аппарата, пользователя и продуктов. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Предоставить архив с исходным кодом (React JS). 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Сделать обновление состояний через state-manager (Redux, MobX, ...) или через hooks 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Сценарии Использования: 
 
-### `yarn eject`
+1.Система показывает депозит пользователя (кол-во монет разного достоинства) 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1 руб = 10 штук (начальные данные) 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2 руб = 30 штук 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5 руб = 20 штук 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+10 руб = 15 штук 
 
-## Learn More
+2.Система показывает ассортимент товаров для продажи, стоимость и остаток товара 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Чай = 13 руб, 10 порций. (начальные данные) 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Кофе = 18 руб, 20 порций. 
 
-### Code Splitting
+Кофе с молоком = 21 руб, 20 порций. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Сок = 35 руб = 15 порций. 
 
-### Analyzing the Bundle Size
+3. Система показывает депозит кофемашины для сдачи (кол-во монет разного достоинства) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1 руб = 100 штук (начальные данные) 
 
-### Making a Progressive Web App
+2 руб = 100 штук 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5 руб = 100 штук 
 
-### Advanced Configuration
+10 руб = 100 штук 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Пользователь может внести монеты в монетоприемник кофемашины нажав на монету (или кнопку «внести» рядом с соответствующей монетой) в своём кошелке. 
 
-### Deployment
+При этом кол-во монет в кошелке пользователя соответствующего достоинства должно измениться. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+5. Кофемашина должна обновить поле «Внесенная сумма». 
 
-### `yarn build` fails to minify
+6. Пользователь может запросить назад остаток внесенной суммы нажав кнопку «Сдача». 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+При этом кол-во монет в кошелке пользователя должно измениться, кофемашина должна обновить поле «Внесенная сумма». 
+
+Внесенная сумма возвращается целиком, при этом сумма возвращается наименьшим кол-вом монет. (напр: 23 руб = 2 х 10 руб + 1 х 2 руб + 1 х 1 руб). При этом возможно изменение кол-во монет на депозите кофемашины. 
+
+7.Пользователь может купить товар кликнув на товар (или на кнопку рядом с соответствующим товаром)  
+
+Если стоимость товара <= «Внесенной суммы» товар выдается пользователю, "Внесенная сумма" уменьшается на цену товара и сумма зачисляется на депозит кофемашины (см. п. 3). Пользователю показывается сообщение с текстом "Спасибо! Вами приобретён  { указать продукт }". 
+
+Если стоимость товара > «Внесенной суммы» пользователю выдается сообщение с текстом "Недостаточно средств: { сколько необходимо }" 
+
+8. Пользователь может повторить п.4. п.5. п.6. в произвольной последовательности. 
